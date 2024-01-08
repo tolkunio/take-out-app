@@ -1,0 +1,19 @@
+.button{
+    cursor: pointer;
+    border: none;
+    color: var(--white-color);
+    transition: background 0.25s;
+    font-family: inherit;
+    border-radius: 29px;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    background-color: var(--primary-color);
+}
+.small{
+    padding: 10px 25px;
+}
+.big{
+    text-transform: uppercase;
+    padding: 20px 60px;
+}
