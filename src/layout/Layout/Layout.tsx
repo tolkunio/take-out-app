@@ -5,6 +5,8 @@ import cart from '../../assets/cart.svg';
 import avatar from '../../assets/avatar.svg';
 import exit from '../../assets/exit.svg';
 import {Button} from "../../components/Button/Button";
+import {NavLink} from "react-router-dom";
+import cn from "classnames";
 
 export const Layout = () => {
     return (
@@ -16,14 +18,14 @@ export const Layout = () => {
                     <div className={s.email}> toprog27@gmail.com </div>
                 </div>
                 <div className={s.menu}>
-                    <Link to={'/'} className={s.link}>
+                    <NavLink to={'/'} className={({isActive})=>cn(s.link,isActive?s.active:'')}>
                         <img alt={'иконка меню'} src={menu}/>
                         Меню
-                    </Link>
-                    <Link to={'cart'} className={s.link}>
+                    </NavLink>
+                    <NavLink to={'cart'} className={({isActive})=>cn(s.link,isActive?s.active:'')}>
                         <img alt={'иконка корзины'} src={cart}/>
                         Корзина
-                    </Link>
+                    </NavLink>
                 </div>
                 <Button className={s.exit}>
                     <img src={exit} alt={'иконка выхода'}/>

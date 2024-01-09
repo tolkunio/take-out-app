@@ -28,6 +28,12 @@
     text-decoration: none;
     color: var(--text-color);
 }
+.link:hover{
+    color: var(--primary-color);
+}
+.active{
+    color: var(--primary-color);
+}
 .name{
     font-size: 20px;
     font-weight: 700;
