@@ -51,3 +51,7 @@
     align-items: center;
     gap: 9px;
 }
+.content{
+    padding: 40px 60px;
+    width: 100%;
+}

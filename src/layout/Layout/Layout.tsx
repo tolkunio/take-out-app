@@ -32,7 +32,7 @@ export const Layout = () => {
                     Выход
                 </Button>
             </div>
-            <div>
+            <div className={s.content}>
                 <Outlet/>
             </div>
         </div>
