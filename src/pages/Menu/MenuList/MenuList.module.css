@@ -1,12 +1,6 @@
-.menu{
-
-}
-.head{
+.menuList{
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
-}
-.cardList{
-}
-.error{
-    color: red;
+    gap: 20px;
 }
