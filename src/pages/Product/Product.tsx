@@ -1,11 +1,12 @@
 import s from './Product.module.css';
-import {useParams} from 'react-router-dom';
+import {useLoaderData} from 'react-router-dom';
+import {Product} from "../../interfaces/product.interface";
 
 export const Product = () => {
-    const { id } = useParams();
+    const data = useLoaderData() as Product;
     return (
         <div className={s.product}>
-            Product-{ id }
+            Product-{ data.name }
         </div>
     );
 };
