@@ -8,6 +8,7 @@ import {Cart} from "./pages/Cart/Cart";
 import {Error} from "./pages/Error/Error";
 import {createBrowserRouter} from "react-router-dom";
 import {Layout} from "./layout/Layout/Layout";
+import {Product} from "./pages/Product/Product";
 const router = createBrowserRouter([
     {
         path:'/',
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
                 path:'/cart',
                 element:<Cart/>
             },
+            {
+                path: '/product/:id',
+                element:<Product/>
+            }
         ]
     },
     {

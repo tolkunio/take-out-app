@@ -1,4 +1,4 @@
-import {Link, Outlet} from "react-router-dom";
+import {Outlet} from "react-router-dom";
 import s from './Layout.module.css';
 import menu from '../../assets/menu.svg';
 import cart from '../../assets/cart.svg';

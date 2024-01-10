@@ -4,9 +4,9 @@ import cartBtn from '../../assets/cart-button.svg';
 import star from '../../assets/star-icon.svg';
 import {Link} from "react-router-dom";
 
-export const ProductCard = ({title, rating, price, description, img}: ProductCardProps) => {
+export const ProductCard = ({id,title, rating, price, description, img}: ProductCardProps) => {
     return (
-        <Link to={'/'} className={s.link}>
+        <Link to={`/product/${id}`} className={s.link}>
             <div className={s.card}>
                 <div className={s.head} style={{backgroundImage: `url('${img}')`}}>
                     <div className={s.price}>
