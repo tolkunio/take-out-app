@@ -10,6 +10,9 @@ import {AxiosError} from "axios";
 import {useState} from "react";
 import {LoginResponse} from "../../interfaces/auth.interface";
 import {useNavigate} from 'react-router-dom';
+import {useDispatch} from "react-redux";
+import {AppDispatch} from "../../store/store";
+import {userActions} from "../../store/user.slice";
 
 type LoginType = {
     email: {
@@ -22,6 +25,7 @@ type LoginType = {
 const Login = () => {
     const [error,setError]=useState<string|undefined>('');
     const navigate = useNavigate();
+    const dispatch = useDispatch<AppDispatch>();
     const submit = async (e: FormEvent) => {
         setError(null);
         e.preventDefault();
@@ -36,6 +40,7 @@ const Login = () => {
                 email, password
             });
             localStorage.setItem('jwt',data.access_token);
+            dispatch(userActions.addJwt(data.access_token));
             navigate('/')
         } catch (e) {
             if (e instanceof AxiosError) {
