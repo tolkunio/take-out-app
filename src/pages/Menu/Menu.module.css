@@ -1,12 +1,8 @@
-.menu{
-
-}
 .head{
     display: flex;
     justify-content: space-between;
 }
-.cardList{
-}
+
 .error{
     color: red;
 }

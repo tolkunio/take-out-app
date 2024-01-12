@@ -10,7 +10,7 @@ const MenuList = ({products}:MenuListProps) => {
                          description={item.ingredients.join(', ')}
                          img={item.image}
                          price={item.price}
-                         rating={item.rating}/>)}}
+                         rating={item.rating}/>)}
     </div>
 };
 

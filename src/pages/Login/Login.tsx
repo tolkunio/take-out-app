@@ -39,7 +39,6 @@ const Login = () => {
             const {data} = await axios.post<LoginResponse>(`${PREFIX}/auth/login`, {
                 email, password
             });
-            localStorage.setItem('jwt',data.access_token);
             dispatch(userActions.addJwt(data.access_token));
             navigate('/')
         } catch (e) {

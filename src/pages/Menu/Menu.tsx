@@ -1,7 +1,6 @@
 import {Heading} from "../../components/Heading/Heading";
 import s from './Menu.module.css';
 import {Search} from "../../components/Search/Search";
-import {ProductCard} from "../../components/ProductCard/ProductCard";
 import {PREFIX} from "../../helpers/API";
 import {Product} from "../../interfaces/product.interface";
 import {useState} from "react";
@@ -39,10 +38,10 @@ export const Menu = () => {
     return (
         <>
             <div className={s.head}>
-                <Heading className={s.menu}> Меню</Heading>
+                <Heading> Меню</Heading>
                 <Search placeholder={'Введите блюдо или состав'}/>
             </div>
-            <div className={s.cardList}>
+            <div>
                 <div className={s.error}>
                     {error && {error}}
                 </div>
