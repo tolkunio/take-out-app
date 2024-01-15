@@ -1,3 +1,54 @@
 .register{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    gap: 30px;
+    width: 100%;
+    max-width: 500px;
+}
 
+.formBlock {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.heading {
+    padding-top: 100px;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 5px
+}
+.name{
+    color: #C4C4C4;
+    font-size: 17px;
+    font-weight: 400;
+}
+.email {
+    color: #C4C4C4;
+    font-size: 17px;
+    font-weight: 400;
+}
+
+.password {
+    color: #C4C4C4;
+    font-size: 17px;
+    font-weight: 400;
+}
+
+.error {
+    background: #FFC529;
+    color: white;
+    padding: 15px;
+}
+
+.button {
+
+}
+
+.footer {
+    padding-top: 15px;
 }
