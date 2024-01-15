@@ -7,12 +7,16 @@ import exit from '../../assets/exit.svg';
 import {Button} from "../../components/Button/Button";
 import {NavLink, useNavigate} from "react-router-dom";
 import cn from "classnames";
+import {useDispatch} from "react-redux";
+import {AppDispatch} from "../../store/store";
+import {userActions} from "../../store/user.slice";
 
 export const Layout = () => {
     const navigate = useNavigate();
+    const dispatch = useDispatch<AppDispatch>();
     const logOut = () => {
-        localStorage.removeItem('jwt');
-        navigate('/auth/login');
+        dispatch(userActions.logOut());
+         navigate('/auth/login');
 
     }
     return (
