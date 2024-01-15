@@ -10,10 +10,19 @@ import cn from "classnames";
 import {useDispatch} from "react-redux";
 import {AppDispatch} from "../../store/store";
 import {userActions} from "../../store/user.slice";
+import {useEffect} from "react";
+import {getProfile} from "../../store/user.slice";
+import {useSelector} from "react-redux";
+import {RootState} from "../../store/store";
 
 export const Layout = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch<AppDispatch>();
+    const profile = useSelector((state:RootState)=>state.user.profile);
+
+    useEffect(()=>{
+        dispatch(getProfile())
+    },[dispatch])
     const logOut = () => {
         dispatch(userActions.logOut());
          navigate('/auth/login');
@@ -24,8 +33,8 @@ export const Layout = () => {
             <div className={s.sidebar}>
                 <div className={s.user}>
                     <img src={avatar} className={s.avatar} alt={'иконка пользователя'}/>
-                    <div className={s.name}> Tolkun</div>
-                    <div className={s.email}> toprog27@gmail.com</div>
+                    <div className={s.name}> {profile?.name}</div>
+                    <div className={s.email}>{profile?.email}</div>
                 </div>
                 <div className={s.menu}>
                     <NavLink to={'/'} className={({isActive}) => cn(s.link, isActive ? s.active : '')}>
