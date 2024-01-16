@@ -19,15 +19,17 @@ export const Layout = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch<AppDispatch>();
     const profile = useSelector((state:RootState)=>state.user.profile);
+    const items = useSelector((state:RootState) =>state.cart.items);
 
     useEffect(()=>{
         dispatch(getProfile())
-    },[dispatch])
+    },[dispatch]);
+
     const logOut = () => {
         dispatch(userActions.logOut());
          navigate('/auth/login');
+    };
 
-    }
     return (
         <div className={s.layout}>
             <div className={s.sidebar}>
@@ -45,6 +47,7 @@ export const Layout = () => {
                         <img alt={'иконка корзины'} src={cart}/>
                         Корзина
                     </NavLink>
+                    {items.reduce((acc,item)=>acc+=item.count,0)}
                 </div>
                 <Button className={s.exit} onClick={logOut}>
                     <img src={exit} alt={'иконка выхода'}/>
