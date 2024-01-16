@@ -18,16 +18,16 @@ import {RootState} from "../../store/store";
 export const Layout = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch<AppDispatch>();
-    const profile = useSelector((state:RootState)=>state.user.profile);
-    const items = useSelector((state:RootState) =>state.cart.items);
+    const profile = useSelector((state: RootState) => state.user.profile);
+    const items = useSelector((state: RootState) => state.cart.items);
 
-    useEffect(()=>{
+    useEffect(() => {
         dispatch(getProfile())
-    },[dispatch]);
+    }, [dispatch]);
 
     const logOut = () => {
         dispatch(userActions.logOut());
-         navigate('/auth/login');
+        navigate('/auth/login');
     };
 
     return (
@@ -45,9 +45,9 @@ export const Layout = () => {
                     </NavLink>
                     <NavLink to={'cart'} className={({isActive}) => cn(s.link, isActive ? s.active : '')}>
                         <img alt={'иконка корзины'} src={cart}/>
-                        Корзина
+                        Корзина <span className={s.cartCount}>{items.reduce((acc, item) => acc += item.count, 0)}</span>
                     </NavLink>
-                    {items.reduce((acc,item)=>acc+=item.count,0)}
+
                 </div>
                 <Button className={s.exit} onClick={logOut}>
                     <img src={exit} alt={'иконка выхода'}/>
