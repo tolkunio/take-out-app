@@ -33,7 +33,7 @@ const Login = () => {
     }, [jwt, navigate]);
 
     const submit = async (e: FormEvent) => {
-        dispatch(userActions.clearLoginError);
+        dispatch(userActions.clearLoginError());
         e.preventDefault();
         const target = e.target as typeof e.target & LoginType;
         const {email, password} = target;

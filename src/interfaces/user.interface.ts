@@ -5,3 +5,8 @@ export interface Profile {
     name: string;
     phone: string;
 }
+export interface Register{
+    email: string;
+    name: string;
+    password:string
+}
