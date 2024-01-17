@@ -59,7 +59,6 @@ export const register = createAsyncThunk('user/register',
 
 export const getProfile = createAsyncThunk<Profile, void, { state: RootState }>('user/getProfile',
     async (_, thunkAPI) => {
-        console.log(thunkAPI.getState())
         const {jwt} = thunkAPI.getState().user;
         const {data} = await axios.get<Profile>(`${PREFIX}/user/profile`, {
             headers: {

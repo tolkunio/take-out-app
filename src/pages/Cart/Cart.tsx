@@ -8,20 +8,25 @@ import {Product} from "../../interfaces/product.interface";
 import {useEffect} from "react";
 import axios from "axios";
 import {PREFIX} from "../../helpers/API";
+
 export const Cart = () => {
-    const [cartProducts, setCardProducts]=useState<Product[]>([]);
-    const items =useSelector((s:RootState)=>s.cart.items);
-    const getItem=async (id:number)=>{
-        const {data}=await axios.get<Product>(`${PREFIX}/products/${id}`);
+    const [cartProducts, setCardProducts] = useState<Product[]>([]);
+
+    const items = useSelector((s: RootState) => s.cart.items);
+
+    const getItem = async (id: number) => {
+        const {data} = await axios.get<Product>(`${PREFIX}/products/${id}`);
         return data;
     }
-    const loadAllItems = async ()=>{
-        const res= await Promise.all(items.map(i=>getItem(i.id)));
+
+    const loadAllItems = async () => {
+        const res = await Promise.all(items.map(i => getItem(i.id)));
         setCardProducts(res);
     }
-    useEffect(()=>{
+
+    useEffect(() => {
         loadAllItems();
-    },[items])
+    }, [items])
 
     return (
         <>
@@ -31,7 +36,13 @@ export const Cart = () => {
                 if(!product){
                     return;
                 }
-                return <CartItem count={i.count} {...product}/>
+                return <CartItem key={product.id}
+                                 count={i.count}
+                                 id={product.id}
+                                 name={product.name}
+                                 img={product.image}
+                                 price={product.price}
+                />
             })}
         </>
 
