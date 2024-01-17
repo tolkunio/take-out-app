@@ -1,5 +1,5 @@
-import React from 'react'
 import ReactDOM from 'react-dom/client'
+import React, { Suspense, lazy } from 'react';
 import App from './App.tsx'
 import './index.css'
 import {RouterProvider} from "react-router-dom";
@@ -17,6 +17,7 @@ import Register from "./pages/Register/Register";
 import {RequireAuth} from "./helpers/requireAuth";
 import {Provider} from "react-redux";
 import {store} from "./store/store";
+import Success from "./pages/Success/Success";
 const router = createBrowserRouter([
     {
         path:'/',
@@ -24,7 +25,11 @@ const router = createBrowserRouter([
         children:[
             {
                 path:'/',
-                element:<Menu/>,
+                element:<Suspense fallback={<>Загрузка...</>}><Menu/></Suspense>,
+            },
+            {
+                path: '/success',
+                element: <Success />
             },
             {
                 path:'/cart',
